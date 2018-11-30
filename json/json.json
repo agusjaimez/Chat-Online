@@ -1,0 +1,15 @@
+{
+  "sala": [
+    {
+      "sala": "jaimez",
+      "id": 0
+    }
+  ],
+  "mensajes": [
+    {
+      "jaimez": "Hola",
+      "salaId": 0,
+      "id": 1
+    }
+  ]
+}

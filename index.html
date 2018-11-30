@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chatting rooms!</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/Style.css">
+</head>
+<body bgcolor="#bbb">
+  <div class="container-fluid">
+    <div class="row">
+    <div class="col-3" id="sector-salas">
+      <div class="header">
+        <div class="controles-de-sala" id="crear-sala">
+        <a class="btn btn-lg btn-bd-primary mb-3 mb-md-0 mr-md-3 sala_cont" data-toggle="modal" id="user" data-target="#modal-iniciar">Iniciar sesion</a>
+        </div>
+        <div class="cerrar">
+        <a class="btn btn-lg btn-bd-primary mb-3 mb-md-0 mr-md-3 sala_cont btn-sm" id="cerrar-sesion">Cerrar sesion</a>
+        </div>
+      </div>
+      <div class="salas">
+        <div class="controles-de-sala" id="crear-sala">
+          <a class="btn btn-lg btn-bd-primary mb-3 mb-md-0 mr-md-3 sala_cont" data-toggle="modal" data-target="#modal-crear-sala">Crear nueva sala</a>
+        </div>
+        <div class="controles-de-sala" id="unirse-a-sala">
+          <a class="btn btn-lg btn-bd-primary mb-3 mb-md-0 mr-md-3 sala_cont" data-toggle="modal" data-target="#modal-sala">Unirse a una sala</a>
+        </div>
+        <div>
+            <a class="btn btn-lg btn-bd-primary mb-3 mb-md-0 mr-md-3 disabled">Salas actuales</a>
+        </div>
+      </div>
+      <div class="list-group" id="list-tab" role="tablist" style="">
+      </div>
+    </div>
+    <div class="col-9" id="1" style="background-color:lightgray; text-align:center; height:100vh">
+      <div id="sector-mensajes">
+
+      </div>
+      <div class="jumbotron jumbotron-fluid" style="text-align:left; height:75vh; overflow-y:scroll;" id="mensajes">
+        <label style="">Seleccione un chat para iniciar</label>
+          </div>
+
+      <div id="seccion-mensajes">
+        <form>
+          <div class="form-group" style="text-align:left;">
+             <label for="mensaje">Mensaje:</label><br>
+             <input type="text" class="form-control" id="mensaje" placeholder="Escriba su mensaje aqui">
+             <button type="submit" class="btn btn-primary" id="enviar">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<!-- Modal para unirse -->
+<div class="modal fade" id="modal-sala" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Unirse a una sala existente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="nombreDeSala">Introduzca el nombre de la sala:</label>
+          <input type="text" class="form-control" id="nombreDeSala" placeholder="Nombre de la sala">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="unirse">Unirse</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal para crear -->
+<div class="modal fade" id="modal-crear-sala" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Crear una sala</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="nombreDeSala">Introduzca el nombre de la sala:</label>
+          <input type="text" class="form-control" id="nuevaSala" placeholder="Nombre de la sala">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="crear">Crear</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para iniciar sesion -->
+<div class="modal fade" id="modal-iniciar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Iniciar sesion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="nombreDeUsuario">Introduzca su nombre:</label>
+          <input type="text" class="form-control" id="nombreDeUsuario" placeholder="Nombre De Usuario">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="ingresar">Ingresar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/func2.js"></script>
+</html>
